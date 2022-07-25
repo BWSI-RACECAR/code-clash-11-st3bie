@@ -65,7 +65,9 @@ class Solution:
                 temp = 0
                 first = False
                 
-                
+        if (len(profit) == 0):
+            return 0
+        
         index = profit.index(max(profit))
         total += profit[index]
         profit[index] = 0
