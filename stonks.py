@@ -58,6 +58,8 @@ class Solution:
             if (list[i] >= 0):
                 temp += list[i]
                 first = False
+                if (i == len(list)-1):
+                    profit.append(temp)
             
             else:
                 if (first != True):
