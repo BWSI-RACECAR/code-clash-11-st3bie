@@ -71,6 +71,8 @@ class Solution:
         index = profit.index(max(profit))
         total += profit[index]
         profit[index] = 0
+        if (max(profit) == 0):
+            return total
         total += max(profit)
         
         return total
