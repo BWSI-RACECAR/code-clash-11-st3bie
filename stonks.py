@@ -40,44 +40,15 @@ class Solution:
     def stonks(self, prices):
         # type prices: list
         # return type: int
-        list = []
+        sum = 0;
+        length = len(prices)
+        for i in range(0, length):
+            for j in range(i, length):
+                for k in range(j, length):
+                    for l in range(k, length):
+                        sum = max(sum, prices[j] - prices[i] + prices[l] - prices[k])
 
-        start = 0
-        end = 0
-
-        for i in range(1, len(prices)):
-            list.append(prices[i] - prices[i-1])
-        
-        
-        profit = []
-        temp = 0
-        first = True
-        total = 0
-        
-        for i in range(len(list)):
-            if (list[i] >= 0):
-                temp += list[i]
-                first = False
-                if (i == len(list)-1):
-                    profit.append(temp)
-            
-            else:
-                if (first != True):
-                    profit.append(temp)
-                temp = 0
-                first = False
-                
-        if (len(profit) == 0):
-            return 0
-        
-        index = profit.index(max(profit))
-        total += profit[index]
-        profit[index] = 0
-        if (max(profit) == 0):
-            return total
-        total += max(profit)
-        
-        return total
+        return sum
 
 
         
